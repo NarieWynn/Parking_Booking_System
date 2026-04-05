@@ -94,8 +94,8 @@ CREATE TABLE Booking
 (
   booking_id INT NOT NULL AUTO_INCREMENT,
   start_time DATETIME NOT NULL,
-  end_time DATETIME NOT NULL,
-  total_price FLOAT NOT NULL,
+  end_time DATETIME NULL,
+  total_price FLOAT NULL,
   booking_status VARCHAR(20) NOT NULL DEFAULT 'pending',
   driver_id INT NOT NULL,
   slot_id INT NOT NULL,
