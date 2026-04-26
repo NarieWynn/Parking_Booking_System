@@ -1,0 +1,74 @@
+{
+  "1_Auth_Register_Owner": {
+    "method": "POST",
+    "endpoint": "http://localhost:8080/api/auth/register",
+    "description": "Tạo tài khoản Chủ bãi đỗ (Để lấy ownerId = 1)",
+    "body": {
+      "email": "chu.baixe@gmail.com",
+      "password": "password123",
+      "role": "OWNER",
+      "firstName": "Phu",
+      "middleName": "Van",
+      "lastName": "Tran",
+      "businessName": "Công ty TNHH Bãi Đỗ Xe Trung Tâm",
+      "businessContact": "0909123456"
+    }
+  },
+  "2_ParkingLot_Create": {
+    "method": "POST",
+    "endpoint": "http://localhost:8080/api/parking-lots",
+    "description": "Tạo bãi đỗ xe (Cần ownerId = 1 từ bước trên)",
+    "body": {
+      "lotName": "Bãi đỗ xe Quận 1",
+      "totalSlot": 100,
+      "province": "Ho Chi Minh",
+      "district": "Quận 1",
+      "street": "123 Lê Lợi",
+      "ownerId": 1
+    }
+  },
+  "3_ParkingSlot_Create": {
+    "method": "POST",
+    "endpoint": "http://localhost:8080/api/parking-slots",
+    "description": "Tạo ô đỗ xe (Cần lotId = 1 từ bước trên)",
+    "body": {
+      "slotNumber": "A-01",
+      "type": "NORMAL",
+      "isAvailable": "Y",
+      "lotId": 1
+    }
+  },
+  "4_Auth_Register_Driver": {
+    "method": "POST",
+    "endpoint": "http://localhost:8080/api/auth/register",
+    "description": "Tạo tài khoản Tài xế (Để lấy driverId = 2)",
+    "body": {
+      "email": "tx.kien_test@gmail.com",
+      "password": "password123",
+      "role": "DRIVER",
+      "firstName": "Kien",
+      "middleName": "Trung",
+      "lastName": "Pham",
+      "licenseNumber": "B2-987654321"
+    }
+  },
+  "5_Auth_Login_Driver": {
+    "method": "POST",
+    "endpoint": "http://localhost:8080/api/auth/login",
+    "description": "Test đăng nhập tài khoản Tài xế",
+    "body": {
+      "email": "tx.kien_test@gmail.com",
+      "password": "password123"
+    }
+  },
+  "6_Booking_Create": {
+    "method": "POST",
+    "endpoint": "http://localhost:8080/api/bookings",
+    "description": "Driver (ID 2) đặt chỗ vào Slot (ID 1)",
+    "body": {
+      "startTime": "2026-04-27T08:00:00",
+      "driverId": 2,
+      "slotId": 1
+    }
+  }
+}
